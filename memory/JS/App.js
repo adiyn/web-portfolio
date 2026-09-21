@@ -2,19 +2,27 @@ const dimension = 150;
 const imgStart = Math.floor(Math.random() * 100) + 1;
 const images = [];
 
+// fetching images
 for (let i = 0; i < 8; i++) {
     images[i] = `https://picsum.photos/id/${imgStart + i}/${dimension}`;
 }
 
 let cards = [...images, ...images];
 const gameBoard = document.getElementById("game-board");
+const timerDisplay = document.getElementById("timer");
+const resultDisplay = document.getElementById("result");
+const resetBtn = document.getElementById("reset-btn");
 
+// states
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
 let moves = 0;
 let matchedCount = 0;
+let seconds = 0;
+let timerInterval = null;
 
+// fisher yates shuffle :3
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -28,6 +36,27 @@ function resetBoard() {
     lockBoard = false;
 }
 
+function formatTime(sec) {
+    const minutes = Math.floor(sec / 60);
+    const remainingSeconds = sec % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+function startTimer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        seconds++;
+        timerDisplay.textContent = formatTime(seconds);
+    }, 1000);
+}
+
+function checkVictory() {
+    if (matchedCount === cards.length) {
+        clearInterval(timerInterval);
+        resultDisplay.textContent = `Victoire en ${moves} coups et ${formatTime(seconds)} !`;
+    }
+}
+
 function checkMatch() {
     const isMatch = firstCard.dataset.value === secondCard.dataset.value;
 
@@ -36,6 +65,7 @@ function checkMatch() {
         secondCard.classList.add("matched");
         matchedCount += 2;
         resetBoard();
+        checkVictory();
     } else {
         setTimeout(() => {
             firstCard.innerHTML = "";
@@ -64,6 +94,17 @@ function handleCardClick(card) {
 }
 
 function initGame() {
+    clearInterval(timerInterval);
+    seconds = 0;
+    moves = 0;
+    matchedCount = 0;
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+
+    timerDisplay.textContent = "00:00";
+    resultDisplay.textContent = "";
+
     shuffle(cards);
     gameBoard.innerHTML = "";
 
@@ -75,9 +116,14 @@ function initGame() {
         card.setAttribute("tabindex", "0");
 
         card.addEventListener("click", () => handleCardClick(card));
-
         gameBoard.appendChild(card);
     });
+
+    startTimer();
+}
+
+if (resetBtn) {
+    resetBtn.addEventListener("click", initGame);
 }
 
 initGame();
