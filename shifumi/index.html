@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ShiFuMi</title>
+
+    <script defer src="App.js"></script>
+</head>
+
+<body>
+    <h1>shifumi</h1>
+
+    <main id="game">
+        <div id="play_buttons">
+            <button class="btn" data-move="rock" type="button">
+                pierre
+            </button>
+
+            <button class="btn" data-move="paper" type="button">
+                feuille
+            </button>
+
+            <button class="btn" data-move="scissors" type="button">
+                ciseaux
+            </button>
+        </div>
+
+        <p id="result" aria-live="polite"></p>
+
+        <div id="stats">
+            <p>victoires : <span class="stat" id="victories">0</span></p>
+            <p>défaites : <span class="stat" id="defeats">0</span></p>
+            <p>nulles : <span class="stat" id="nulls">0</span></p>
+
+            <button class="reset" id="reset" type="button">
+                reset
+            </button>
+        </div>
+    </main>
+</body>
+</html>
