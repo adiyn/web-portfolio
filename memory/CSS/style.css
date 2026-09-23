@@ -4,9 +4,14 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: "w95";
+    src: url("../../fonts/W95F.otf");
+}
+
 body {
     background-color: #008080;
-    font-family: "MS Sans Serif", Tahoma, monospace, sans-serif;
+    font-family: "w95";
     align-items: center;
     min-height: 100vh;
     min-width: 75vw;
@@ -62,7 +67,7 @@ h1 {
     background: #000000;
     color: #ff0000;
     padding: 2px 6px;
-    font-family: monospace;
+    font-family: "w95";
     font-size: 16px;
     border: 2px inset #808080;
 }

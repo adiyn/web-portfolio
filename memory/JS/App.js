@@ -16,7 +16,13 @@ let moves = 0;
 let matchedCount = 0;
 let seconds = 0;
 let timerInterval = null;
+for (let i = 0; i < 8; i++) {
+    images[i] = `https://picsum.photos/id/${imgStart + i}/${dimension}`;
+}
 
+let cards = [...images, ...images];
+
+// game funcions
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -80,6 +86,7 @@ function handleCardClick(card) {
         firstCard = card;
         return;
     }
+    
     secondCard = card;
     lockBoard = true;
     moves++;
@@ -87,17 +94,12 @@ function handleCardClick(card) {
 }
 
 // ai stuff
-
 function randomMove() {
     return Math.floor(Math.random() * 12);
 }
 
+// game init
 function initGame() {
-    for (let i = 0; i < 8; i++) {
-        images[i] = `https://picsum.photos/id/${imgStart + i}/${dimension}`;
-    }
-
-    let cards = [...images, ...images];
     clearInterval(timerInterval);
     seconds = 0;
     moves = 0;
