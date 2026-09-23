@@ -3,11 +3,6 @@ const imgStart = Math.floor(Math.random() * 100) + 1;
 const images = [];
 
 // fetching images
-for (let i = 0; i < 8; i++) {
-    images[i] = `https://picsum.photos/id/${imgStart + i}/${dimension}`;
-}
-
-let cards = [...images, ...images];
 const gameBoard = document.getElementById("game-board");
 const timerDisplay = document.getElementById("timer");
 const resultDisplay = document.getElementById("result");
@@ -22,7 +17,6 @@ let matchedCount = 0;
 let seconds = 0;
 let timerInterval = null;
 
-// fisher yates shuffle :3
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -53,7 +47,7 @@ function startTimer() {
 function checkVictory() {
     if (matchedCount === cards.length) {
         clearInterval(timerInterval);
-        resultDisplay.textContent = `Victoire en ${moves} coups et ${formatTime(seconds)} !`;
+        resultDisplay.textContent = `You won in ${moves} moves and ${formatTime(seconds)} !`;
     }
 }
 
@@ -86,7 +80,6 @@ function handleCardClick(card) {
         firstCard = card;
         return;
     }
-
     secondCard = card;
     lockBoard = true;
     moves++;
@@ -94,6 +87,11 @@ function handleCardClick(card) {
 }
 
 function initGame() {
+    for (let i = 0; i < 8; i++) {
+        images[i] = `https://picsum.photos/id/${imgStart + i}/${dimension}`;
+    }
+
+    let cards = [...images, ...images];
     clearInterval(timerInterval);
     seconds = 0;
     moves = 0;
