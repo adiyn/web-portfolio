@@ -98,7 +98,13 @@ h1 {
     border-color: #404040 #ffffff #ffffff #404040;
 }
 
+#popup {
+    position: absolute;
+}
+
 .taskbar {
+    position: absolute;
+    bottom: 0;
     background: #c0c0c0;
     border: 2px solid;
     border-color: #ffffff #404040 #404040 #ffffff;

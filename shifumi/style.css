@@ -1,13 +1,23 @@
+@font-face {
+    font-family: "w95";
+    src: url("/fonts/W95F.otf");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "w95";
+}
+
 body {
     background-color: #008080;
     color: #000000;
-    font-family: "Times New Roman", Times, serif;
     margin: 0;
     padding: 20px;
 }
 
 #game {
-    width: 50vw;
+    width: fit-content;
     margin: 20px auto;
     padding: 10px;
 
@@ -19,7 +29,7 @@ body {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 5rem;
     text-align: center;
     margin: 5px 0 20px;
 
@@ -33,21 +43,24 @@ h1 {
     padding: 15px;
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
 }
 
 #play_buttons {
     text-align: center;
     padding: 15px;
-    background-color: #ffffff;
 
-    border: 2px inset #c0c0c0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0;
 }
 
 .btn,
 .reset,
 .return {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 16px;
+    margin-top: 10px;
+    font-size: 2rem;
 
     background-color: #c0c0c0;
     color: #000000;
@@ -61,7 +74,6 @@ h1 {
     border-bottom: 2px solid #404040;
 
     cursor: pointer;
-
     text-decoration: none;
 }
 
@@ -103,8 +115,4 @@ h1 {
 .stat {
     font-weight: bold;
     color: #000080;
-}
-
-.reset {
-    margin-top: 10px;
 }
