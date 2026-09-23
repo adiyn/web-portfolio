@@ -7,7 +7,7 @@ body {
 }
 
 #game {
-    width: 600px;
+    width: 30vw;
     margin: 20px auto;
     padding: 10px;
 
@@ -27,6 +27,14 @@ h1 {
     text-transform: lowercase;
 }
 
+#control_buttons {
+    width: 100;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
 #play_buttons {
     text-align: center;
     padding: 15px;
@@ -35,8 +43,11 @@ h1 {
     border: 2px inset #c0c0c0;
 }
 
+
+
 .btn,
-.reset {
+.reset,
+.return {
     font-family: "Times New Roman", Times, serif;
     font-size: 16px;
 
@@ -52,10 +63,13 @@ h1 {
     border-bottom: 2px solid #404040;
 
     cursor: pointer;
+
+    text-decoration: none;
 }
 
 .btn:active,
-.reset:active {
+.reset:active,
+.return:active {
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
