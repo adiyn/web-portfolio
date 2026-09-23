@@ -86,6 +86,12 @@ function handleCardClick(card) {
     checkMatch();
 }
 
+// ai stuff
+
+function randomMove() {
+    return Math.floor(Math.random() * 12);
+}
+
 function initGame() {
     for (let i = 0; i < 8; i++) {
         images[i] = `https://picsum.photos/id/${imgStart + i}/${dimension}`;
