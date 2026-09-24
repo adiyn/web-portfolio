@@ -4,122 +4,218 @@
 }
 
 * {
-    padding: 0;
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
     font-family: "w95";
 }
 
 html, body {
-    min-height: 100%;
-    background: #008080;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #008080;
 }
 
-h1 {
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin: 10px 0;
-    text-shadow: 1px 1px #000;
+#desktop {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 36px);
+    overflow: hidden;
 }
 
-.popup {
+/* --- Win95 Window Container --- */
+.window {
+    position: absolute;
+    top: 50px;
+    left: 50px;
     background: #c0c0c0;
     border: 2px solid;
     border-color: #dfdfdf #404040 #404040 #dfdfdf;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    width: 300px; 
+    box-shadow: 2px 2px 0 #000000;
+    min-width: 320px;
+    z-index: 1;
 }
 
-.title-bar,
-.popup-title-bar {
+.window[hidden] {
+    display: none !important;
+}
+
+.title-bar {
     background: linear-gradient(90deg, #000080, #1084d0);
-    color: white;
-    padding: 4px 6px;
+    color: #ffffff;
+    padding: 3px 6px;
     font-weight: bold;
+    font-size: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
+    user-select: none;
 }
 
-.title-bar-buttons,
-.popup-title-bar-buttons {
+.title-bar-buttons {
     display: flex;
     gap: 2px;
 }
 
-.title-bar-button,
-.popup-title-bar-button {
+.title-bar-button {
     background: #c0c0c0;
     border: 1px solid;
     border-color: #dfdfdf #404040 #404040 #dfdfdf;
     width: 16px;
     height: 14px;
-    font-size: 10px;
+    font-size: 0.5rem;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #000;
+    color: #000000;
     cursor: pointer;
 }
 
-.title-bar-button:active,
-.popup-title-bar-button {
+.title-bar-button:active {
     border-color: #404040 #ffffff #ffffff #404040;
 }
 
-.popup-body {
-    padding: 15px;
+.window-body {
+    padding: 12px;
 }
 
-.grid,
-.popup-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.explorer-desc {
+    margin-bottom: 12px;
+    font-size: 14px;
 }
 
-.btn {
+/* Win95 Buttons */
+.btn, .return-btn, .reset {
     background: #c0c0c0;
     border: 2px solid;
     border-color: #ffffff #404040 #404040 #ffffff;
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
-    text-align: center;
+    box-shadow: 1px 1px 0 #000000;
+    padding: 4px 10px;
+    font-size: 1rem;
+    color: #000000;
+    cursor: pointer;
 }
 
-.btn:active {
+.btn:active, .return-btn:active, .reset:active {
     border-color: #404040 #ffffff #ffffff #404040;
+    box-shadow: none;
+    outline: none;
 }
 
-#popup {
-    position: absolute;
-}
-
+/* Taskbar */
 .taskbar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    background: #c0c0c0;
-    border: 2px solid;
-    border-color: #ffffff #404040 #404040 #ffffff;
+    left: 0;
     width: 100%;
     height: 5vh;
-    & #start-menu-btn {
-        height: 100%;
-        background-image: url("/img/Start\ Button.png");
-        background-position: center;
-        background-size: 150%;
-        background-repeat: no-repeat;
-        & :active {
-            border-color: #404040 #ffffff #ffffff #404040;
-        }
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 2px 4px;
+    z-index: 1000;
+}
+
+/* Start Menu Button */
+.start-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 8px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+    box-shadow: 1px 1px 0 #000000;
+    font-size: 1rem;
+    cursor: pointer;
+    height: 100%;
+    width: 40px;
+    background-image: url("/img/Start\ Button.png");
+    background-position: center;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    & :active {
+        border-color: #404040 #ffffff #ffffff #404040;
     }
 }
 
+.start-menu-btn:active,
+.start-menu-btn[aria-expanded="true"] {
+    border-color: #404040 #ffffff #ffffff #404040;
+    box-shadow: inset 1px 1px 0 #000000;
+}
 
+/* Start Menu Popup */
+.start-menu {
+    position: absolute;
+    bottom: 5vh;
+    left: 4px;
+    display: flex;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+    box-shadow: 2px 2px 0 #000000;
+    min-width: 200px;
+    z-index: 1001;
+}
+
+.start-menu[hidden] {
+    display: none;
+}
+
+.start-menu-sidebar {
+    background: #7f7f7f;
+    width: 28px;
+    display: flex;
+    align-items: flex-end;
+    padding: 8px 4px;
+}
+
+.start-menu-sidebar span {
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+    white-space: nowrap;
+    color: #c0c0c0;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.start-menu-sidebar b {
+    color: #ffffff;
+}
+
+.start-menu-apps {
+    list-style: none;
+    flex: 1;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.start-menu-item {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: none;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.start-menu-item:hover {
+    background-color: #000080;
+    color: #ffffff;
+}
+
+.menu-separator {
+    height: 1px;
+    background: #808080;
+    border-bottom: 1px solid #ffffff;
+    margin: 4px 2px;
+}

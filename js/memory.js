@@ -5,7 +5,7 @@ const images = [];
 // fetching images
 const gameBoard = document.getElementById("game-board");
 const timerDisplay = document.getElementById("timer");
-const resultDisplay = document.getElementById("result");
+const resultDisplay = document.getElementById("memory-result");
 const resetBtn = document.getElementById("reset-btn");
 
 // states
@@ -131,5 +131,3 @@ function initGame() {
 if (resetBtn) {
     resetBtn.addEventListener("click", initGame);
 }
-
-initGame();

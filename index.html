@@ -1,100 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cozy web corner</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/memory.css">
+    <link rel="stylesheet" href="./css/shifumi.css">
     <script defer src="./js/script.js"></script>
     <script defer src="./js/shifumi.js"></script>
     <script defer src="./js/memory.js"></script>
 </head>
-
 <body>
-    <main>
-        <!-- TODO : icons -->
-    </main>
-    <footer class="taskbar">
-        <section class="games-menu">
-            <div class="popup" id="popup" hidden>
-                <div class="title-bar">
-                    <span>PROJECT_EXPLORER.EXE</span>
-                    <div class="title-bar-buttons">
-                        <span class="title-bar-button">_</span>
-                    </div>
-                </div>
-                <div class="popup-body">
-                    <div id="popup-project-list" class="grid"></div>
+    <main id="desktop">
+        <!-- PROJECT EXPLORER WINDOW -->
+        <section class="window" id="window-explorer" aria-labelledby="title-explorer" hidden>
+            <div class="title-bar">
+                <span id="title-explorer" class="title-bar-text">GAMES.EXE</span>
+                <div class="title-bar-buttons">
+                    <button type="button" class="title-bar-button btn-close" data-close="window-explorer" aria-label="Close Explorer">x</button>
                 </div>
             </div>
-            <div class="window">
-                <!-- <div id="ai-game">
-                    <div id="ai-game-board">
-                    </div>
-                    <div id="ai-game-info">
-                        <p>Time : <span id="ai-timer">00:00</span></p>
-                        <p id="ai-result"></p>
-                    </div>
-                </div> -->
-                <div id="game">
-                    <div id="game-board">
-                    </div>
-                    <div id="game-info">
-                        <p>Time : <span id="timer">00:00</span></p>
-                        <p id="result"></p>
-                        <button id="reset-btn" type="button">
-                            Restart
-                        </button>
-                        <button id="close-game-button">
-                            return
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div hidden>
-                <div id="play_buttons">
-                    <button class="btn" data-move="rock" type="button">
-                        rock
-                    </button>
-
-                    <button class="btn" data-move="paper" type="button">
-                        paper
-                    </button>
-
-                    <button class="btn" data-move="scissors" type="button">
-                        scisors
-                    </button>
-                </div>
-
-                <p id="result" aria-live="polite"></p>
-
-                <div id="stats">
-                    <p>victories : <span class="stat" id="victories">0</span></p>
-                    <p>defeats : <span class="stat" id="defeats">0</span></p>
-                    <p>nulls : <span class="stat" id="nulls">0</span></p>
-                </div>
-
-                <div id="control_buttons">
-                    <button class="reset" id="reset" type="button">
-                        reset
-                    </button>
-                    <button id="close-game-button">
-                        return
-                    </button>
+            <div class="window-body">
+                <div id="popup-project-list" class="grid">
+                    <button type="button" class="btn" data-target="window-memory">MEMORY.EXE</button>
+                    <button type="button" class="btn" data-target="window-shifumi">SHIFUMI.EXE</button>
                 </div>
             </div>
         </section>
-        <button class="btn" id="start-menu-btn">
 
+        <!-- MEMORY GAME WINDOW -->
+        <section class="window" id="window-memory" aria-labelledby="title-memory" hidden>
+            <div class="title-bar">
+                <span id="title-memory" class="title-bar-text">MEMORY.EXE</span>
+                <div class="title-bar-buttons">
+                    <button type="button" class="title-bar-button btn-close" data-close="window-memory" aria-label="Close Memory">x</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div id="memory-game">
+                    <div id="game-board"></div>
+                    <div id="game-info">
+                        <p>Time : <span id="timer">00:00</span></p>
+                        <p id="memory-result"></p>
+                        <button id="reset-btn" type="button">Restart</button>
+                        <button type="button" class="return-btn" data-close="window-memory">Return</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHIFUMI GAME WINDOW -->
+        <section class="window" id="window-shifumi" aria-labelledby="title-shifumi" hidden>
+            <div class="title-bar">
+                <span id="title-shifumi" class="title-bar-text">SHIFUMI.EXE</span>
+                <div class="title-bar-buttons">
+                    <button type="button" class="title-bar-button btn-close" data-close="window-shifumi" aria-label="Close ShiFuMi">✕</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div id="shifumi-game">
+                    <div id="play-buttons">
+                        <button class="btn" data-move="rock" type="button">rock</button>
+                        <button class="btn" data-move="paper" type="button">paper</button>
+                        <button class="btn" data-move="scissors" type="button">scissors</button>
+                    </div>
+
+                    <p id="shifumi-result" aria-live="polite"></p>
+
+                    <div id="stats">
+                        <p>victories : <span class="stat" id="victories">0</span></p>
+                        <p>defeats : <span class="stat" id="defeats">0</span></p>
+                        <p>nulls : <span class="stat" id="nulls">0</span></p>
+                    </div>
+
+                    <div id="control-buttons">
+                        <button class="reset" id="reset" type="button">reset</button>
+                        <button type="button" class="return-btn" data-close="window-shifumi">Return</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- TASKBAR & START MENU -->
+    <footer class="taskbar">
+        <button type="button" id="start-menu-btn" class="start-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="start-menu">
         </button>
 
-        <div class="start-menu" hidden>
-            <ul id="start-menu-apps">
+        <div class="start-menu" id="start-menu" hidden>
+            <div class="start-menu-sidebar">
+            </div>
+            <ul class="start-menu-apps" id="start-menu-apps">
+                <li>
+                    <button type="button" class="start-menu-item" data-target="window-explorer">
+                        Games
+                    </button>
+                </li>
             </ul>
         </div>
     </footer>
 </body>
-
 </html>

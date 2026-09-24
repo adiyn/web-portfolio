@@ -3,41 +3,7 @@
     src: url("/fonts/W95F.otf");
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    font-family: "w95";
-}
-
-body {
-    background-color: #008080;
-    color: #000000;
-    margin: 0;
-    padding: 20px;
-}
-
-#game {
-    width: fit-content;
-    margin: 20px auto;
-    padding: 10px;
-
-    background-color: #c0c0c0;
-    border-top: 3px solid #ffffff;
-    border-left: 3px solid #ffffff;
-    border-right: 3px solid #404040;
-    border-bottom: 3px solid #404040;
-}
-
-h1 {
-    font-size: 5rem;
-    text-align: center;
-    margin: 5px 0 20px;
-
-    color: #000080;
-    text-transform: lowercase;
-}
-
-#control_buttons {
+#control-buttons {
     width: 100;
     text-align: center;
     padding: 15px;
@@ -46,7 +12,7 @@ h1 {
     flex-direction: row;
 }
 
-#play_buttons {
+#play-buttons {
     text-align: center;
     padding: 15px;
 
@@ -54,51 +20,6 @@ h1 {
     justify-content: center;
     flex-direction: row;
     padding: 0;
-}
-
-.btn,
-.reset,
-.return {
-    margin-top: 10px;
-    font-size: 2rem;
-
-    background-color: #c0c0c0;
-    color: #000000;
-
-    padding: 5px 15px;
-    margin: 3px;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.btn:active,
-.reset:active,
-.return:active {
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-}
-
-#result {
-    min-height: 25px;
-
-    background-color: #ffff00;
-    color: #000000;
-
-    padding: 5px;
-    margin: 15px 0;
-
-    border: 2px inset #c0c0c0;
-
-    text-align: center;
-    font-weight: bold;
 }
 
 #stats {

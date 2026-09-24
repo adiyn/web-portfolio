@@ -1,32 +1,9 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 @font-face {
     font-family: "w95";
     src: url("../../fonts/W95F.otf");
 }
 
-body {
-    background-color: #008080;
-    font-family: "w95";
-    align-items: center;
-    min-height: 100vh;
-    min-width: 75vw;
-    padding: 16px;
-    margin: auto;
-    padding-top: 15vh;
-}
-
-#window {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-}
-
-#game,
+#memory-game,
 #ai-game {
     background: #c0c0c0;
     border: 3px solid;
@@ -37,15 +14,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 16px;
-}
-
-h1 {
-    font-size: 18px;
-    background: #000080;
-    color: #ffffff;
-    width: 100%;
-    padding: 4px 8px;
-    letter-spacing: 1px;
 }
 
 #game-info,

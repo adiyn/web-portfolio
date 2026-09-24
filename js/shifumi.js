@@ -1,9 +1,9 @@
 const victories = document.getElementById("victories");
 const defeats = document.getElementById("defeats");
 const nulls = document.getElementById("nulls");
-const playButtons = document.getElementById("play_buttons");
+const playButtons = document.getElementById("play-buttons");
 const resetButton = document.getElementById("reset");
-const result = document.getElementById("result");
+const result = document.getElementById("shifumi-result");
 
 const moves = {
     rock: 0,
@@ -53,7 +53,7 @@ function play(player) {
         result.textContent = "Player won";
     } else {
         state.defeats++;
-        result.textContent = "Bot won.";
+        result.textContent = "Bot won";
     }
     show();
 }
