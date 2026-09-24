@@ -1,28 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cozy web corner</title>
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="./css/style.css" rel="stylesheet"/>
+    <link href="./css/style.css" rel="stylesheet" />
     <script defer src="./js/script.js"></script>
+    <script defer src="./js/shifumi.js"></script>
+    <script defer src="./js/memory.js"></script>
 </head>
+
 <body>
-    <div class="popup" id="popup">
-        <div class="title-bar">
-            <span>PROJECT_EXPLORER.EXE</span>
-            <div class="title-bar-buttons">
-                <span class="title-bar-button">_</span>
-            </div>
-        </div>
-        <div class="popup-body">
-            <div id="popup-project-list" class="grid"></div>
-        </div>
-    </div>
+    <main>
+        <!-- TODO : icons -->
+    </main>
     <footer class="taskbar">
+        <section class="games-menu">
+            <div class="popup" id="popup" hidden>
+                <div class="title-bar">
+                    <span>PROJECT_EXPLORER.EXE</span>
+                    <div class="title-bar-buttons">
+                        <span class="title-bar-button">_</span>
+                    </div>
+                </div>
+                <div class="popup-body">
+                    <div id="popup-project-list" class="grid"></div>
+                </div>
+            </div>
+            <div class="window">
+                <!-- <div id="ai-game">
+                    <div id="ai-game-board">
+                    </div>
+                    <div id="ai-game-info">
+                        <p>Time : <span id="ai-timer">00:00</span></p>
+                        <p id="ai-result"></p>
+                    </div>
+                </div> -->
+                <div id="game">
+                    <div id="game-board">
+                    </div>
+                    <div id="game-info">
+                        <p>Time : <span id="timer">00:00</span></p>
+                        <p id="result"></p>
+                        <button id="reset-btn" type="button">
+                            Restart
+                        </button>
+                        <button id="close-game-button">
+                            return
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div hidden>
+                <div id="play_buttons">
+                    <button class="btn" data-move="rock" type="button">
+                        rock
+                    </button>
+
+                    <button class="btn" data-move="paper" type="button">
+                        paper
+                    </button>
+
+                    <button class="btn" data-move="scissors" type="button">
+                        scisors
+                    </button>
+                </div>
+
+                <p id="result" aria-live="polite"></p>
+
+                <div id="stats">
+                    <p>victories : <span class="stat" id="victories">0</span></p>
+                    <p>defeats : <span class="stat" id="defeats">0</span></p>
+                    <p>nulls : <span class="stat" id="nulls">0</span></p>
+                </div>
+
+                <div id="control_buttons">
+                    <button class="reset" id="reset" type="button">
+                        reset
+                    </button>
+                    <button id="close-game-button">
+                        return
+                    </button>
+                </div>
+            </div>
+        </section>
         <button class="btn" id="start-menu-btn">
-            
+
         </button>
 
         <div class="start-menu" hidden>
@@ -31,4 +96,5 @@
         </div>
     </footer>
 </body>
+
 </html>
